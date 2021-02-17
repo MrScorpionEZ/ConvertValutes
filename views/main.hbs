@@ -19,7 +19,7 @@
                     </option>
                     {{/each}}
                 </select>
-                <input class="form-control" id="right-text" value="0" placeholder="100"oninput="convert(this)">
+                <input class="form-control" id="right-text" value="0" placeholder="100" oninput="convert(this)">
             </div>
         </div>
     </form>
@@ -39,7 +39,7 @@
         <tbody>
             {{#each Valute}}
                 <tr>
-                    <td>#</td>
+                    <td>{{order}}</td>
                     <td>{{Name}}</td>
                     <td>{{CharCode}}</td>
                     <td>{{Value}}</td>
@@ -59,9 +59,9 @@
         const rightText = document.getElementById("right-text");
     
         if (obj ==leftValute || obj == leftText){
-            rightText.value = leftText.value * leftValute.value / rightValute.value;
+            rightText.value = (leftText.value * leftValute.value / rightValute.value).toFixed(3);
         } else {
-            leftText.value = rightText.value * rightValute.value / leftValute.value;
+            leftText.value = (rightText.value * rightValute.value / leftValute.value).toFixed(3);
         }
     }
 </script>

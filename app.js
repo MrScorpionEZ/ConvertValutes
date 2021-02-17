@@ -29,11 +29,15 @@ app.get("/", (request, response) => {
                 Previous: 1
             };
 
+            var order = 1;
+
             for (const key in model.Valute) {
                 const element = model.Valute[key];
+                element.order = order;
                     
-                element.Value = element.Value / element.Nominal;
-                element.DelValue = 1 / element.Value;
+                element.Value = (element.Value / element.Nominal).toFixed(3);
+                element.DelValue = (1 / element.Value).toFixed(3);
+                order = order + 1;
             }
         }
 
